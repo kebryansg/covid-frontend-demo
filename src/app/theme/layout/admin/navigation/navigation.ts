@@ -28,19 +28,19 @@ export interface Navigation extends NavigationItem {
 const NavigationItems = [
   {
     id: 'other',
-    title: 'Admin',
+    title: 'Menu',
     type: 'group',
     icon: 'feather icon-align-left',
     children: [
       {
-        id: 'sample-page',
-        title: 'Sample Page',
+        id: 'resumen-infectado',
+        title: 'Resumen',
         type: 'item',
-        url: '/sample-page',
+        url: '/resumen-infectado',
         classes: 'nav-item',
         icon: 'feather icon-sidebar'
       },
-      {
+      /*{
         id: 'menu-level',
         title: 'Menu Levels',
         type: 'collapse',
@@ -75,7 +75,7 @@ const NavigationItems = [
             ]
           }
         ]
-      }
+      }*/
     ]
   }
 ];

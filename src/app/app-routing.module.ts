@@ -10,12 +10,13 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'sample-page',
+        redirectTo: 'resumen-infectado',
         pathMatch: 'full'
       },
       {
-        path: 'Resumen - Infectados',
-        loadChildren: () => import('./demo/pages/sample-page/sample-page.module').then(module => module.SamplePageModule)
+        path: 'resumen-infectado',
+        loadChildren: () => import('./demo/pages/sample-page/sample-page.module').then(module => module.SamplePageModule),
+        data: {title: 'Resumen - Infectado'}
       }
     ]
   },
