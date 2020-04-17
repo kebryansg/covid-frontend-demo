@@ -1,7 +1,62 @@
-<div class="row">
-  <div class="col-sm-12">
-    <app-card cardTitle="Hello Card">
-      <p class="p-t-20">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-    </app-card>
+<app-card cardTitle="Posición - Resumen">
+  <div class="row">
+    <div class="col-md-9">
+
+      <agm-map [latitude]="positionCenter.latitude"
+               [longitude]="positionCenter.longitud"
+               [zoom]="17"
+               style="height: 550px;">
+
+        <agm-marker *ngFor="let item of lsPositionEnfermos"
+                    [latitude]="item.latitud"
+                    [longitude]="item.longitud">
+          <agm-info-window [isOpen]="true" >
+            <h5 class="font-weight-bold">
+              {{ item.estadadoPaciente | uppercase }}
+            </h5>
+          </agm-info-window>
+        </agm-marker>
+
+      </agm-map>
+
+    </div>
+    <div class="col-md-3">
+
+      <dx-pie-chart
+        id="pie"
+        title="Estado Infectados"
+        palette="bright"
+        [dataSource]="resumen.EstadosPaciente">
+        <dxi-series
+          argumentField="Estado"
+          valueField="Count">
+          <dxo-label [visible]="true">
+            <dxo-connector
+              [visible]="true"
+              [width]="1"></dxo-connector>
+          </dxo-label>
+        </dxi-series>
+        <dxo-legend
+          verticalAlignment='bottom'
+          horizontalAlignment='center'>
+        </dxo-legend>
+        <dxo-export [enabled]="true"></dxo-export>
+      </dx-pie-chart>
+
+      <dx-data-grid
+        id="gridContainer"
+        [dataSource]="resumen.EstadosPaciente"
+        [columns]="['Estado','Count']"
+        [showBorders]="true">
+        <dxi-column
+          dataField="Estado">
+        </dxi-column>
+        <dxi-column
+          dataField="Count" caption="Total" alignment="center">
+        </dxi-column>
+      </dx-data-grid>
+    </div>
   </div>
-</div>
+
+
+</app-card>

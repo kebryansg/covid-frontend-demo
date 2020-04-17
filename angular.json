@@ -17,7 +17,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng-able-pro",
+            "outputPath": "dist",
+            "baseHref": "/pruebac/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -26,10 +27,17 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/fake-data"
+              "src/fake-data",
+              {
+                "glob": "**/*",
+                "input": "src/config",
+                "output": "/"
+              }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/devextreme/dist/css/dx.common.css",
+              "node_modules/devextreme/dist/css/dx.light.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

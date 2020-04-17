@@ -48,7 +48,7 @@ export class ConfigurationComponent implements OnInit {
   ngOnInit() {
     this.styleSelectorToggle = false;
 
-    this.layoutType =  this.nextConfig.layoutType;
+    this.layoutType = this.nextConfig.layoutType;
     this.setLayout(this.layoutType);
 
     this.headerBackgroundColor = this.nextConfig.headerBackColor;
