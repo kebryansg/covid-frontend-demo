@@ -18,7 +18,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist",
-            "baseHref": "/pruebac",
+            "baseHref": "/pruebac/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,7 +27,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/fake-data",
               {
                 "glob": "**/*",
                 "input": "src/config",
